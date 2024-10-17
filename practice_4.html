@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<button id="btn">click me</button>
+<p id="para">_</p>
+<body>
+  <h1>Result</h1>
+  <p id="result-Add"></p>
+  <p id="result-subtract"></p>
+  <p id="result-multiply"></p>
+  <p id="result-pI"></p>
+
+    <script type="module">
+        import * as jadoo from './main.js';
+        import multiply from './mathUtils.js';
+        document.getElementById('result-add').innerText='Add: $(jadoo.add(5,3))';
+        document.getElementById('result-subtract').innerText='subtract: $(jadoo.subtract(5,3))';
+        document.getElementById('result-pI').innerText='pI: $(jadoo.pI)';
+        document.getElementById('result-multiply').innerText='multiply: $(jadoo.multiply(5,3))';
+    </script>
+
+</body>
+</html>
