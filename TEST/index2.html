@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index2</title>
+    <link rel="stylesheet" href="">
+</head>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+p {
+    font-size: 1.1em;
+    color: #333;
+    margin-top: 20px;
+}
+
+</style>
+<body>
+    <div class="container">
+        <h1><center>Jokes Generator</center></h1>
+       
+        <p id="joke"></p>
+        <p id="wordCount"></p>
+        <button id="generateJokeBtn">Get Joke</button>
+        <button type="reset">Clear Joke</button>
+       
+    </div>
+
+    <script>
+    
+async function generateJoke() {
+    try {
+      
+        const response = await fetch('https://v2.jokeapi.dev/joke/Any');
+        const data = await response.json();
+
+        
+        if (data.error) {
+            document.getElementById("joke").innerText = "Oops! Something went wrong.";
+            document.getElementById("wordCount").innerText = "";
+            return;
+        }
+
+        const joke = data.joke;
+
+        document.getElementById("joke").innerText = joke;
+
+        const wordCount = joke.split(' ').length;
+        document.getElementById("wordCount").innerText = `Word Count: ${wordCount}`;
+        
+    } catch (error) {
+        console.error('Error fetching joke:', error);
+        document.getElementById("joke").innerText = "Sorry, couldn't fetch a joke at this time.";
+        document.getElementById("wordCount").innerText = "";
+    }
+}
+
+
+document.getElementById("generateJokeBtn").addEventListener("click", generateJoke);
+
+    </script>
+</body>
+</html>

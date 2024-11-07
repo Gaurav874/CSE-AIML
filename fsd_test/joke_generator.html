@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joke Generator</title>
+    <style>
+        .joke_container {
+            background-color: rgb(251, 255, 127);
+            border: 2px solid black;
+            margin: 100px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #jokeOutput {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="joke_container">
+        <h1>Joke Generator</h1>
+        <button type="button" onclick="getData()">Generate Joke</button>
+        <button type="button" onclick="clearJoke()">Clear</button>
+        <div id="jokeOutput"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
